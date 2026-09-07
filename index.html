@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>余秋秋的个人博客</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "SimSun", sans-serif;
+            background-color: #f8f7f2;
+            color: #3e3e3e;
+            line-height: 1.9;
+			min-height: 100vh;
+            /* 多张图逗号隔开：左边图，右边图 */
+            background-image: url('img/right.avif'), url("img/lift.avif");
+            /* 定位：左图靠左垂直居中，右图靠右垂直居中 */
+            background-position: left center, right center;
+            /* 两张都禁止平铺 */
+            background-repeat: no-repeat, no-repeat;
+            /* 设置两张背景图大小，宽度可自己调 */
+            background-size: 300px auto, 260px auto;
+            /* 关键：背景图固定，不跟随滚动 */
+            background-attachment: fixed, fixed;
+        }
+        nav {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 24px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e8e6df;
+        }
+        .nav-logo {
+            font-size: 18px;
+            font-weight: 600;
+            color: #5a6e47;
+        }
+        /* 导航链接向右偏移 */
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            margin-left: 60px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #6b7a55;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+        /* 悬浮效果 */
+        .nav-links a:hover {
+            color: #5a6e47;
+            text-decoration: underline;
+        }
+        .nav-button {
+            background-color: #5a6e47;
+            color: #fff;
+            padding: 8px 18px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        .nav-button:hover {
+            background-color: #4a5c38;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+        header {
+            text-align: center;
+            padding: 48px 24px;
+            margin-bottom: 32px;
+        }
+        header .subtitle {
+            font-size: 16px;
+            color: #7a8f66;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+        header h1 {
+            font-size: 36px;
+            color: #5a6e47;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+        header p {
+            font-size: 16px;
+            color: #6b5d4f;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .section {
+            background-color: #fffdf7;
+            border: 1px solid #e8e6df;
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 24px;
+        }
+        .section h2 {
+            font-size: 24px;
+            color: #5a6e47;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #d8ddcf;
+        }
+        .section h3 {
+            font-size: 20px;
+            color: #7a8f66;
+            margin: 24px 0 12px;
+        }
+        .section h4 {
+            font-size: 17px;
+            color: #6b5d4f;
+            margin: 18px 0 10px;
+            font-weight: 600;
+        }
+        .section p {
+            font-size: 16px;
+            color: #4a3f35;
+            margin-bottom: 14px;
+            text-indent: 2em;
+        }
+        .section ul {
+            padding-left: 22px;
+            margin-bottom: 14px;
+        }
+        .section li {
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #4a3f35;
+        }
+        .highlight-box {
+            background-color: #f4f7ee;
+            border-left: 4px solid #5a6e47;
+            padding: 20px 24px;
+            border-radius: 12px;
+            margin: 24px 0;
+        }
+        footer {
+            text-align: center;
+            padding: 24px;
+            color: #7a6b58;
+            font-size: 14px;
+            margin-top: 20px;
+            border-top: 1px solid #e8e6df;
+        }
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .nav-links {
+                gap: 18px;
+                margin-left: 0;
+            }
+            .container {
+                padding: 24px 16px;
+            }
+            header,
+            .section {
+                padding: 28px 20px;
+            }
+            header h1 {
+                font-size: 28px;
+            }
+            .section h2 {
+                font-size: 20px;
+            }
+            /* 移动端关闭固定背景，防止兼容性问题 */
+            body {
+                background-attachment: scroll, scroll;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-logo">余秋秋</div>
+        <div class="nav-links">
+            <a href="#intro">个人简介</a>
+            <a href="#school">学校经历</a>
+            <a href="#practice">实践经历</a>
+            <a href="#project">项目经验</a>
+        </div>
+        <a href="#contact" class="nav-button">了解更多</a>
+    </nav>
+    <div class="container">
+        <header>
+            <div class="subtitle">Welcome to my blog</div>
+            <h1>余秋秋的个人博客</h1>
+            <p>湖北理工学院计算机学院 · 软件工程专业｜记录学习、实践与成长</p>
+        </header>
+        <div class="section" id="intro">
+            <h2>一、个人基础简介</h2>
+            <p>余秋秋，女，湖北理工学院计算机学院24级软件工程专业在读学生。性格开朗上进，做事认真踏实，善于沟通表达，也乐于团队协作。在校期间，我始终保持积极乐观的生活态度，认真完成专业学习，主动参与校园文体活动、竞赛展示和实践项目，希望在不断尝试中提升自我、丰富经历。</p>
+            <p>我的兴趣爱好主要是画画和看书。画画让我学会耐心观察生活，也培养了一定的审美能力和创造力；看书则让我能够在文字中拓展视野、沉淀思想。无论是绘画创作还是阅读积累，都让我在学习软件工程的理性思维之外，保持对生活和美的敏感。</p>
+        </div>
+        <div class="section" id="school">
+            <h2>二、学校经历</h2>
+            <h3>1. 大一学年经历</h3>
+            <p>大一入学后，我积极适应大学生活，并主动参与校园各类活动。在学习上，我认真对待各门课程，努力打好专业基础；在课余生活中，我也敢于尝试不同的展示平台，锻炼自己的表达能力和舞台经验。</p>
+            <h4>校级朗诵比赛一等奖</h4>
+            <ul>
+                <li>大一期间参加校级朗诵比赛，围绕稿件理解、语气处理、情感表达和舞台状态进行反复练习。</li>
+                <li>比赛过程中保持稳定表达和自然情感投入，最终获得校级朗诵比赛一等奖。</li>
+                <li>本次经历提升了我的语言表达能力、公众展示能力和临场应变能力，也增强了我的自信心。</li>
+            </ul>
+            <h4>校级心理情景舞台剧一等奖</h4>
+            <ul>
+                <li>参与校级心理情景舞台剧的剧本研读、角色分析、台词打磨和舞台排练。</li>
+                <li>在团队合作中不断磨合表演细节，最终完成完整的舞台呈现，并获得校级心理情景舞台剧一等奖。</li>
+                <li>这次经历让我更加理解团队协作的重要性，也提升了我的角色理解能力和舞台表达能力。</li>
+            </ul>
+            <h4>参加第一届四校汇演</h4>
+            <ul>
+                <li>凭借舞台剧节目参与第一届四校汇演，与其他学校的学生同台交流和展示。</li>
+                <li>通过跨校活动了解不同学校的创作思路和舞台表现方式，拓宽了校园视野。</li>
+                <li>积累了大型舞台演出、跨校交流和团队协作的宝贵经验。</li>
+            </ul>
+            <h3>2. 大二学年经历</h3>
+            <p>进入大二后，我更加注重专业学习和综合能力的平衡发展。一方面认真学习软件工程相关课程，另一方面继续参与校园活动，在实践中提升综合素质。</p>
+            <h4>获得湖理乙等奖学金</h4>
+            <ul>
+                <li>大二期间保持较为稳定的学习状态，认真完成课堂学习、作业任务和课程实践。</li>
+                <li>通过一学年的努力，获得湖北理工学院乙等奖学金。</li>
+                <li>这份奖学金是对我学习态度和综合表现的肯定，也激励我继续保持认真踏实的学习习惯。</li>
+            </ul>
+            <h4>校级心理情景舞台剧二等奖</h4>
+            <ul>
+                <li>大二时再次参与校级心理情景舞台剧活动，对剧本、角色和舞台表达有了更深入的理解。</li>
+                <li>在团队中积极配合排练和演出工作，最终获得校级心理情景舞台剧二等奖。</li>
+                <li>这次经历让我学会从结果中总结不足，也让我更加理解反复打磨和持续成长的重要性。</li>
+            </ul>
+        </div>
+        <div class="section" id="practice">
+            <h2>三、实践经历</h2>
+            <h3>1. 校园文体实践</h3>
+            <ul>
+                <li>参与校级朗诵比赛，锻炼语言组织、情感表达和公众展示能力。</li>
+                <li>连续参与心理情景舞台剧活动，熟悉剧本解读、角色塑造、团队排练和舞台演出流程。</li>
+                <li>通过校园文体实践，提升了表达能力、协作能力、执行能力和临场应变能力。</li>
+            </ul>
+            <h3>2. 跨校交流实践</h3>
+            <ul>
+                <li>参与第一届四校汇演，与其他学校的学生进行文艺交流和展示。</li>
+                <li>学习不同团队的创作思路、舞台编排和节目呈现方式。</li>
+                <li>拓宽了校园视野，也提升了我在跨校交流中的表达能力和学习意识。</li>
+            </ul>
+            <h3>3. 个人成长实践</h3>
+            <ul>
+                <li>长期坚持绘画创作，培养审美能力、创造力和专注力。</li>
+                <li>保持阅读习惯，通过文字输入提升理解能力、表达能力和思想深度。</li>
+                <li>在专业学习之外，注重个人综合素质提升，努力实现全面发展。</li>
+            </ul>
+        </div>
+        <div class="section" id="project">
+            <h2>四、项目经验</h2>
+            <h3>1. 专业课程项目经验</h3>
+            <ul>
+                <li>学习软件工程专业基础课程，包括计算机基础、程序设计、前端开发、软件开发流程等内容。</li>
+                <li>参与课程实践和基础项目任务，逐步了解代码编写、页面设计、功能实现和问题调试过程。</li>
+                <li>熟悉基础项目开发逻辑，理解软件开发不仅包括技术实现，也包括需求理解、逻辑设计和团队协作。</li>
+            </ul>
+            <h3>2. 个人绘画创作项目</h3>
+            <ul>
+                <li>长期坚持绘画创作，通过绘画记录生活、表达情绪、练习构图和色彩搭配。</li>
+                <li>在创作过程中提升观察能力、审美能力和创造能力。</li>
+                <li>绘画兴趣也为网页设计、界面布局和视觉表达提供了一定的审美基础。</li>
+            </ul>
+            <h3>3. 阅读与知识积累项目</h3>
+            <ul>
+                <li>长期保持阅读习惯，阅读内容包括文学类、成长类、社科类和部分专业拓展书籍。</li>
+                <li>通过阅读提升文字理解能力、表达能力和认知广度。</li>
+                <li>将阅读作为持续输入的方式，为专业学习和个人成长提供思想基础。</li>
+            </ul>
+        </div>
+        <div class="highlight-box" id="contact">
+            <h3>五、个人总结</h3>
+            <p>作为一名湖北理工学院计算机学院软件工程专业的学生，我在大学期间既经历了专业学习上的成长，也在校园活动和个人兴趣中收获了许多宝贵经验。我性格开朗上进，做事认真踏实，愿意尝试新事物，也愿意在团队中承担责任。</p>
+            <p>在校期间，我获得过校级朗诵比赛一等奖、校级心理情景舞台剧一等奖和二等奖，也获得了湖北理工学院乙等奖学金。这些经历让我更加自信，也让我明白成长来自于一次次尝试、一次次坚持和一次次复盘。</p>
+            <p>未来，我希望继续深耕软件工程专业，提升自己的技术能力和项目经验，同时保持对生活的热爱和对美的追求。我相信，只要保持积极上进的态度，不断学习、不断实践，就能够在专业和个人成长中取得更多进步。</p>
+        </div>
+        <footer>
+            <p>余秋秋的个人博客｜湖北理工学院计算机学院 · 软件工程专业</p>
+        </footer>
+    </div>
+</body>
+</html>
